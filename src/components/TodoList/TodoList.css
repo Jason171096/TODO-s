@@ -1,0 +1,10 @@
+.TodoList {
+    width: 100%;
+    height: 100%;
+}
+
+.ul {
+    width: 100%;
+    padding: 0;
+    margin: 15px 0;
+}

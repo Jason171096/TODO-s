@@ -1,0 +1,14 @@
+.TodoCounter {
+    padding: 5px 35px;
+    background-color: #506384;
+    border-radius: 20px;
+    box-shadow: 3px 5px 5px 5px #506384;
+    color: aliceblue;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

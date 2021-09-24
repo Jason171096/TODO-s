@@ -1,0 +1,45 @@
+.List {
+    width: 500px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #853379;
+    border-radius: 15px;
+    padding: 10px 0px;
+    margin-top: 20px;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 3px 3px 20px 3px rgb(136, 28, 103)
+}
+
+.checkbox {
+    width: 25px;
+    height: 25px;
+    margin: 0 15px;
+}
+
+.text-completed {
+    text-decoration-line: line-through;
+}
+
+.text-incompleted {
+    text-decoration-line: none;
+}
+
+.text-p{
+    width: 400px;
+    text-align: center;
+    font-size: 1.5rem;
+    word-wrap: normal;
+}
+
+.delete {
+    font-size: 1.5rem;
+    background-color: brown;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0 15px;
+    border: 1px solid tomato;
+}
