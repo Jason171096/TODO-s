@@ -1,27 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AppUI } from "./AppUI";
 
 const useLocalStore = (itemName, initialValue) => {
-  const localStorageItem = localStorage.getItem(itemName)
-  let parsedItem = initialValue
+  const [item, setItem] = useState(initialValue)
+  const [isError, setIsError] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isCompleted, setIsCompleted] = useState(false)
   
-  if(!localStorageItem) 
-    localStorageItem.setItem(itemName, JSON.stringify(parsedItem))
-  else
-    parsedItem = JSON.parse(localStorageItem)
+  useEffect(() => {
+    setTimeout(() => {
+      const localStorageItem = localStorage.getItem(itemName)
+    let parsedItem = initialValue
+    
+    if(!localStorageItem) 
+      localStorageItem.setItem(itemName, JSON.stringify(parsedItem))
+    else
+      parsedItem = JSON.parse(localStorageItem)
 
-  const [item, setItem] = useState(parsedItem)
-
+    setIsLoading(false)
+    setIsCompleted(true)
+  
+    }, 2000);
+  }, [])
+  
   const saveItems = (Items) => {
     setItem(Items)
     let jsonItems = JSON.stringify(Items)
     localStorage.setItem(itemName, jsonItems)
   }
-
-  return [
+  
+  return {
     item,
     saveItems,
-  ]
+    isError, 
+    isLoading,
+    isCompleted
+  }
   
 }
 
@@ -34,7 +48,7 @@ function App() {
     { id:5, text: "Public speaking", completed: false },
   ];
 
-  const [todos, saveTodos] = useLocalStore("TODOS_V1", [])
+  const {item: todos, saveItems: saveTodos, isError, isLoading, isCompleted} = useLocalStore("TODOS_V1", defaultTodos)
 
   const [searchValue, setSearchValue] = useState('')
   const completedTodos = todos.filter(todo => !!todo.completed).length
@@ -70,6 +84,9 @@ function App() {
 
   return (
     <AppUI 
+      isError={isError}
+      isLoading={isLoading}
+      isCompleted={isCompleted}
       totalTodos={totalTodos}
       searchedTodos={searchedTodos}
       searchValue={searchValue} 
