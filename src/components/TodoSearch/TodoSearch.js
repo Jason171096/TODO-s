@@ -7,7 +7,7 @@ const TodoSearch = ({ searchValue, setSearchValue }) => {
         <div className="TodoSearch">
             <input 
             className="input"
-            placeholder="Search TODO" 
+            placeholder="Search..." 
             value={searchValue} 
             onChange={(e) => {setSearchValue(e.target.value)}}>
             </input>

@@ -4,19 +4,46 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #853379;
-    border-radius: 15px;
+    background-color: #9494FF;
+    border-radius: 10px;
     padding: 10px 0px;
     margin-top: 20px;
     color: white;
-    border: 1px solid white;
-    box-shadow: 3px 3px 20px 3px rgb(136, 28, 103)
+    box-shadow: 0px 1px 5px 0px #00000040
 }
 
 .checkbox {
-    width: 25px;
+    border-radius: 100%;
+    width: 50px;
     height: 25px;
     margin: 0 15px;
+    border-radius: 20px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 35px;
+    border-radius: 20px;
+    background-color: #8383FF;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: white;
+    font-size: 1.3rem;
+    content: "\f00c";
+    display: none;
+}
+
+input[type="checkbox"]:checked:after {
+    display: block;
 }
 
 .text-completed {
@@ -36,10 +63,7 @@
 
 .delete {
     font-size: 1.5rem;
-    background-color: brown;
-    padding: 10px 20px;
-    border-radius: 15px;
+    padding: 10px;
     cursor: pointer;
     margin: 0 15px;
-    border: 1px solid tomato;
 }

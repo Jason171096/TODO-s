@@ -1,5 +1,6 @@
 import React from 'react';
 import './TodoItem.css'
+import deleteIco from '../../img/delete.svg'
 
 const TodoItem = (props) => {
 
@@ -15,9 +16,9 @@ const TodoItem = (props) => {
 
     return (
         <li className="List">
-            <input id={props.id+"check"} className="checkbox" type="checkbox" onChange={check} onClick={props.completeTodo} checked={props.completed ? true : false}></input>
+            <input className="checkbox" id={props.id+"check"} type="checkbox" onChange={check} onClick={props.completeTodo} checked={props.completed ? true : false}/>           
             <p id={props.id+"text"} className={`text-p ${props.completed ? 'text-completed' : 'text-incompleted'}`}>{props.text}</p>
-            <span className="delete" onClick={props.deleteTodo}>X</span>
+            <img width="35px" height="35px" src={deleteIco} className="delete" onClick={props.deleteTodo} />
         </li>
     );
 }

@@ -12,14 +12,14 @@ const useLocalStore = (itemName, initialValue) => {
       let parsedItem = initialValue
       
       if(!localStorageItem) 
-        localStorageItem.setItem(itemName, JSON.stringify(parsedItem))
+        localStorage.setItem(itemName, JSON.stringify(parsedItem))
       else
         parsedItem = JSON.parse(localStorageItem)
   
       setIsLoading(false)
       setIsCompleted(true)
     
-      }, 2000);
+      }, 1000);
     }, [])
     
     const saveItems = (Items) => {
