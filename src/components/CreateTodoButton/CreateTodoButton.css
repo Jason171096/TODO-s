@@ -1,7 +1,7 @@
 .TodoButton {
     display: flex;
     justify-content: center;
-    padding: 50px;
+    padding: 30px;
 }
 
 .button {
@@ -11,4 +11,10 @@
     font-size: 2.5rem;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+    .button {
+        font-size: 2rem;
+    }
 }

@@ -16,9 +16,9 @@ const TodoItem = (props) => {
 
     return (
         <li className="List">
-            <input className="checkbox" id={props.id+"check"} type="checkbox" onChange={check} onClick={props.completeTodo} checked={props.completed ? true : false}/>           
+            <input id={props.id+"check"} type="checkbox" onChange={check} onClick={props.completeTodo} checked={props.completed ? true : false}/>           
             <p id={props.id+"text"} className={`text-p ${props.completed ? 'text-completed' : 'text-incompleted'}`}>{props.text}</p>
-            <img width="35px" height="35px" src={deleteIco} className="delete" onClick={props.deleteTodo} />
+            <img src={deleteIco} className="delete" onClick={props.deleteTodo} />
         </li>
     );
 }

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './TodoCounter.css'
+import { TodoContext } from '../TodoContext/index'
 import TaskIco from '../../img/task-list.svg'
  
-const TodoCounter = ({ completedTodos, totalTodos }) => {
+const TodoCounter = () => {
+    const { completedTodos, totalTodos } = useContext(TodoContext)
     return (
         <div className="TodoCounter">
             <div className="title">
