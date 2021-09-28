@@ -20,6 +20,7 @@ const TodoProvider = (props) => {
   } = useLocalStore("TODOS_V1", defaultTodos);
 
   const [searchValue, setSearchValue] = useState("");
+  const [openPortal, setOpenPortal] = useState(false);
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
@@ -62,6 +63,8 @@ const TodoProvider = (props) => {
         completedTodos,
         completeTodo,
         deleteTodo,
+        openPortal,
+        setOpenPortal,
       }}
     >
       {props.children}
