@@ -5,11 +5,18 @@ import { TodoItem } from "../TodoItem/TodoItem";
 import { TodoSearch } from "../TodoSearch/TodoSearch";
 import { TodoList } from "../TodoList/TodoList";
 import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
+import { TodoWindow } from "../TodoWindow/TodoWindow";
 import { Portal } from "../Portal";
 
 const AppUI = () => {
-  const { isLoading, isCompleted, searchedTodos, completeTodo, deleteTodo, openPortal } =
-    useContext(TodoContext);
+  const {
+    isLoading,
+    isCompleted,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openPortal,
+  } = useContext(TodoContext);
   return (
     <React.Fragment>
       <TodoCounter />
@@ -29,13 +36,11 @@ const AppUI = () => {
           ))}
       </TodoList>
       <CreateTodoButton />
-      <Portal>
-        {openPortal && 
-          <div className="newTodo">
-            Hola
-          </div>
-        }
-      </Portal>
+      {openPortal && (
+        <Portal>
+          <TodoWindow />
+        </Portal>
+      )}
     </React.Fragment>
   );
 };

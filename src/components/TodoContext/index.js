@@ -17,12 +17,24 @@ const TodoProvider = (props) => {
     isError,
     isLoading,
     isCompleted,
-  } = useLocalStore("TODOS_V1", defaultTodos);
+  } = useLocalStore("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = useState("");
+  const [newTodo, setNewTodo] = useState("")
   const [openPortal, setOpenPortal] = useState(false);
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
+
+  const addTodo = (text) => {
+    const newTodos = [...todos]
+    newTodos.push({
+      id: (Math.random()*100),
+      completed: false,
+      text,
+    })
+    saveTodos(newTodos)
+    setOpenPortal(false)
+  }
 
   const completeTodo = (index) => {
     const todoIndex = todos.findIndex((todo) => todo.id === index);
@@ -64,7 +76,10 @@ const TodoProvider = (props) => {
         completeTodo,
         deleteTodo,
         openPortal,
+        newTodo,
+        setNewTodo,
         setOpenPortal,
+        addTodo,
       }}
     >
       {props.children}
