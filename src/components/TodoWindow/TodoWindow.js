@@ -7,8 +7,9 @@ const TodoWindow = () => {
     return (
         <div className="TodoWindow">
             <h2>Create new TODO</h2>
-            <textarea className="textarea"
-             placeholder="Do cooking" 
+            <textarea
+            className="textarea"
+             placeholder="Go for a walk" 
              onChange={(e) => {setNewTodo(e.target.value)}}>
              </textarea>
             <div className="buttons">

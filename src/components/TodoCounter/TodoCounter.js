@@ -8,7 +8,7 @@ const TodoCounter = () => {
     return (
         <div className="TodoCounter">
             <div className="title">
-                <h1>¡Welcome Jason!</h1>
+                <h1>¡Welcome User!</h1>
                 <div className="sub-title">
                     <div>
                         <img width='40px' height='40px' src={TaskIco}/>

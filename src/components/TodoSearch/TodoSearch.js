@@ -7,6 +7,7 @@ const TodoSearch = () => {
     return (
         <div className="TodoSearch">
             <input 
+            type="text"
             className="input"
             placeholder="Search..." 
             value={searchValue} 
