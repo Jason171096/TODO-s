@@ -6,7 +6,9 @@ import { TodoSearch } from "../TodoSearch/TodoSearch";
 import { TodoList } from "../TodoList/TodoList";
 import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
 import { TodoWindow } from "../TodoWindow/TodoWindow";
-import { Portal } from "../Portal";
+import { PortalNewTodo } from "../Portal-NewTodo/index";
+import { PortalFinishTodo } from "../Portal-FinishTodo/index";
+import TodoFinish from "../TodoFinish/TodoFinish";
 
 const AppUI = () => {
   const {
@@ -15,7 +17,8 @@ const AppUI = () => {
     searchedTodos,
     completeTodo,
     deleteTodo,
-    openPortal,
+    openPortalNewTodo,
+    openPortalFinishTodo,
   } = useContext(TodoContext);
   return (
     <React.Fragment>
@@ -36,10 +39,15 @@ const AppUI = () => {
           ))}
       </TodoList>
       <CreateTodoButton />
-      {openPortal && (
-        <Portal>
+      {openPortalNewTodo && (
+        <PortalNewTodo>
           <TodoWindow />
-        </Portal>
+        </PortalNewTodo>
+      )}
+      {openPortalFinishTodo && (
+        <PortalFinishTodo>
+          <TodoFinish />
+        </PortalFinishTodo>
       )}
     </React.Fragment>
   );

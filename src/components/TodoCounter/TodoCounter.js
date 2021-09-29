@@ -11,8 +11,8 @@ const TodoCounter = () => {
                 <h1>¡Welcome User!</h1>
                 <div className="sub-title">
                     <div>
-                        <img width='40px' height='40px' src={TaskIco}/>
-                        <p>Task List</p>
+                        <img width='40px' height='40px' src={TaskIco} alt="Image tasks list"/>
+                        <p>Tasks List</p>
                     </div>
                     <h2>Today</h2>
                     <p>Completed: {completedTodos}/{totalTodos}</p>

@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { TodoContext } from "../TodoContext";
 import './TodoWindow.css'
 
 const TodoWindow = () => {
-    const { setOpenPortal, addTodo, newTodo, setNewTodo } = useContext(TodoContext)
+    const { setOpenPortalNewTodo, addTodo, newTodo, setNewTodo } = useContext(TodoContext)
     return (
         <div className="TodoWindow">
             <h2>Create new TODO</h2>
@@ -13,7 +13,7 @@ const TodoWindow = () => {
              onChange={(e) => {setNewTodo(e.target.value)}}>
              </textarea>
             <div className="buttons">
-              <a onClick={() => setOpenPortal(false)}>Cancel</a>
+              <a onClick={() => setOpenPortalNewTodo(false)}>Cancel</a>
               <a onClick={() => addTodo(newTodo)}>Confirm</a>
             </div>
         </div>

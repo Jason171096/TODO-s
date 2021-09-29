@@ -3,13 +3,13 @@ import { useLocalStore } from "./useLocalStorage";
 const TodoContext = createContext();
 
 const TodoProvider = (props) => {
-  const defaultTodos = [
-    { id: 1, text: "React course", completed: true },
-    { id: 2, text: "Complete a task", completed: false },
-    { id: 3, text: "Write a book", completed: false },
-    { id: 4, text: "Meditate for 5 minutes", completed: false },
-    { id: 5, text: "Public speaking", completed: false },
-  ];
+  // const defaultTodos = [
+  //   { id: 1, text: "React course", completed: true },
+  //   { id: 2, text: "Complete a task", completed: false },
+  //   { id: 3, text: "Write a book", completed: false },
+  //   { id: 4, text: "Meditate for 5 minutes", completed: false },
+  //   { id: 5, text: "Public speaking", completed: false },
+  // ];
 
   const {
     item: todos,
@@ -21,9 +21,22 @@ const TodoProvider = (props) => {
 
   const [searchValue, setSearchValue] = useState("");
   const [newTodo, setNewTodo] = useState("")
-  const [openPortal, setOpenPortal] = useState(false);
-  const completedTodos = todos.filter((todo) => !!todo.completed).length;
-  const totalTodos = todos.length;
+  const [openPortalNewTodo, setOpenPortalNewTodo] = useState(false);
+  const [openPortalFinishTodo, setOpenPortalFinishTodo] = useState(false);
+  let completedTodos, totalTodos; 
+
+  const lengthTodos = () => {
+    completedTodos = todos.filter((todo) => !!todo.completed).length;
+    totalTodos = todos.length;
+  }
+
+  lengthTodos()
+
+  const finishTodos = () => {
+    if(totalTodos !== 0)
+      if(completedTodos === totalTodos)
+        setOpenPortalFinishTodo(true)
+  }
 
   const addTodo = (text) => {
     const newTodos = [...todos]
@@ -33,7 +46,7 @@ const TodoProvider = (props) => {
       text,
     })
     saveTodos(newTodos)
-    setOpenPortal(false)
+    setOpenPortalNewTodo(false)
   }
 
   const completeTodo = (index) => {
@@ -43,6 +56,8 @@ const TodoProvider = (props) => {
       newTodos[todoIndex].completed = false;
     else newTodos[todoIndex].completed = true;
     saveTodos(newTodos);
+    lengthTodos()
+    finishTodos()
   };
 
   const deleteTodo = (index) => {
@@ -75,10 +90,12 @@ const TodoProvider = (props) => {
         completedTodos,
         completeTodo,
         deleteTodo,
-        openPortal,
         newTodo,
         setNewTodo,
-        setOpenPortal,
+        openPortalNewTodo,
+        setOpenPortalNewTodo,
+        openPortalFinishTodo,
+        setOpenPortalFinishTodo,
         addTodo,
       }}
     >

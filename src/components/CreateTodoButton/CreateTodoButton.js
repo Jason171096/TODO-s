@@ -3,10 +3,10 @@ import './CreateTodoButton.css'
 import { TodoContext } from '../TodoContext/index'
 
 const CreateTodoButton = () => {
-    const { setOpenPortal } = useContext(TodoContext)
+    const { setOpenPortalNewTodo } = useContext(TodoContext)
     return (
         <div className="TodoButton" >
-            <a className="button" onClick={() => setOpenPortal(true)}>+</a>
+            <a className="button" onClick={() => setOpenPortalNewTodo(true)}>+</a>
             <p>Developer <strong>Jason</strong></p>
         </div>
     )
