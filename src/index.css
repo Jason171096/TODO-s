@@ -15,13 +15,6 @@ body {
 input[type="text"], textarea {
   font-family: 'Work Sans', sans-serif, 'Ramaraja';
 }
-/* 
-@font-face {
-  font-family: 'Sans Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/Ramaraja-Regular.ttf);
-} */
 
 p{
   text-align: center;

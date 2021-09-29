@@ -1,3 +1,18 @@
 .TodoFinish {
     display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: #654EA3;
+    border-radius: 10px;
+}
+
+.buttonFinish {
+    font-size: 1rem;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color:green;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
