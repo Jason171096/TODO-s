@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../TodoContext";
+import React from "react";
 import './TodoWindow.css'
 
-const TodoWindow = () => {
-    const { setOpenPortalNewTodo, addTodo, newTodo, setNewTodo } = useContext(TodoContext)
+const TodoWindow = ({ setOpenPortalNewTodo, addTodo, newTodo, setNewTodo }) => {
     return (
         <div className="TodoWindow">
             <h2>Create new TODO</h2>

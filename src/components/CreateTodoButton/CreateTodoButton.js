@@ -1,9 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './CreateTodoButton.css'
-import { TodoContext } from '../TodoContext/index'
 
-const CreateTodoButton = () => {
-    const { setOpenPortalNewTodo } = useContext(TodoContext)
+const CreateTodoButton = ({ setOpenPortalNewTodo }) => {
     return (
         <div className="TodoButton" >
             <a className="button" onClick={() => setOpenPortalNewTodo(true)}>+</a>

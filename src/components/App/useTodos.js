@@ -1,8 +1,7 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import { useLocalStore } from "./useLocalStorage";
-const TodoContext = createContext();
 
-const TodoProvider = (props) => {
+const useTodos = (props) => {
   // const defaultTodos = [
   //   { id: 1, text: "React course", completed: true },
   //   { id: 2, text: "Complete a task", completed: false },
@@ -77,9 +76,7 @@ const TodoProvider = (props) => {
       return todoText.includes(searchText);
     });
   }
-  return (
-    <TodoContext.Provider
-      value={{
+  return {
         isError,
         isLoading,
         isCompleted,
@@ -97,11 +94,7 @@ const TodoProvider = (props) => {
         openPortalFinishTodo,
         setOpenPortalFinishTodo,
         addTodo,
-      }}
-    >
-      {props.children}
-    </TodoContext.Provider>
-  );
+      }
 }
 
-export { TodoContext, TodoProvider }
+export { useTodos }

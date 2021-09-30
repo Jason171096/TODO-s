@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
-import { TodoContext } from "../TodoContext";
+import React from "react";
 import "./TodoFinish.css";
 import Lottie from "react-lottie"
 import checkAnimated from '../../img/check.json' 
 
-const TodoFinish = () => {
-  const { setOpenPortalFinishTodo } = useContext(TodoContext)
+const TodoFinish = ({ setOpenPortalFinishTodo }) => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
