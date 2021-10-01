@@ -1,21 +1,12 @@
 import React, { useState } from "react";
 import { useLocalStore } from "./useLocalStorage";
 
-const useTodos = (props) => {
-  // const defaultTodos = [
-  //   { id: 1, text: "React course", completed: true },
-  //   { id: 2, text: "Complete a task", completed: false },
-  //   { id: 3, text: "Write a book", completed: false },
-  //   { id: 4, text: "Meditate for 5 minutes", completed: false },
-  //   { id: 5, text: "Public speaking", completed: false },
-  // ];
+const useTodos = () => {
 
   const {
     item: todos,
     saveItems: saveTodos,
-    isError,
     isLoading,
-    isCompleted,
   } = useLocalStore("TODOS_V1", []);
 
   const [searchValue, setSearchValue] = useState("");
@@ -77,9 +68,7 @@ const useTodos = (props) => {
     });
   }
   return {
-        isError,
         isLoading,
-        isCompleted,
         totalTodos,
         searchedTodos,
         searchValue,

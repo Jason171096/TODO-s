@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './TodoSearch.css';
 
-const TodoSearch = ({ searchValue, setSearchValue }) => {
+const TodoSearch = ({ setSearchValue }) => {
     return (
         <div className="TodoSearch">
             <input 
             type="text"
             className="input"
             placeholder="Search..." 
-            value={searchValue} 
             onChange={(e) => {setSearchValue(e.target.value)}}>
             </input>
         </div>

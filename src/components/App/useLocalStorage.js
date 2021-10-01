@@ -1,9 +1,8 @@
-import React,  { useState, useEffect }  from 'react'
+import { useState, useEffect }  from 'react'
 
 const useLocalStore = (itemName, initialValue) => {
     const [item, setItem] = useState(initialValue)
     const [isLoading, setIsLoading] = useState(true)
-    const [isCompleted, setIsCompleted] = useState(false)
     
     useEffect(() => {
       setTimeout(() => {
@@ -13,10 +12,9 @@ const useLocalStore = (itemName, initialValue) => {
         localStorage.setItem(itemName, JSON.stringify(parsedItem))
       else
         parsedItem = JSON.parse(localStorageItem)
-        
+         
       saveItems(parsedItem)
       setIsLoading(false)
-      setIsCompleted(true)
       
       }, 0);
     }, [])
@@ -31,7 +29,6 @@ const useLocalStore = (itemName, initialValue) => {
       item,
       saveItems,
       isLoading,
-      isCompleted
     }
     
   }

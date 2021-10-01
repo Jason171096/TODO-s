@@ -9,6 +9,8 @@ import { CreateTodoButton } from "../CreateTodoButton/CreateTodoButton";
 import { TodoWindow } from "../TodoWindow/TodoWindow";
 import { PortalNewTodo } from "../Portal-NewTodo/index";
 import { PortalFinishTodo } from "../Portal-FinishTodo/index";
+import { TodosLoading } from "../TodosLoading/TodosLoading";
+import { EmptyTodos } from "../EmptyTodos/EmptyTodos";
 import TodoFinish from "../TodoFinish/TodoFinish";
 
 function App() {
@@ -29,44 +31,47 @@ function App() {
     addTodo,
     newTodo,
     setNewTodo,
-  } = useTodos()
+  } = useTodos();
   return (
     <React.Fragment>
       <TodoHeader>
         <TodoCounter completedTodos={completedTodos} totalTodos={totalTodos} />
-        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+        <TodoSearch setSearchValue={setSearchValue} />
       </TodoHeader>
-
-      <TodoList>
-        {isLoading && <p>Cargando...</p>}
-        {isCompleted &&
-          searchedTodos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              id={todo.id}
-              text={todo.text}
-              completed={todo.completed}
-              completeTodo={() => completeTodo(todo.id)}
-              deleteTodo={() => deleteTodo(todo.id)}
-            />
-          ))}
-      </TodoList>
+      <TodoList
+        isLoading={isLoading}
+        searchedTodos={searchedTodos}
+        totalTodos={totalTodos}
+        onLoading={() => <TodosLoading />}
+        onEmptyTodos={() => <EmptyTodos />}
+        render={(todo) => (
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            text={todo.text}
+            completed={todo.completed}
+            completeTodo={() => completeTodo(todo.id)}
+            deleteTodo={() => deleteTodo(todo.id)}
+          />
+        )}
+      />
       <CreateTodoButton setOpenPortalNewTodo={setOpenPortalNewTodo} />
       {openPortalNewTodo && (
         <PortalNewTodo>
-          <TodoWindow 
-          setOpenPortalNewTodo={setOpenPortalNewTodo} 
-          addTodo={addTodo} 
-          newTodo={newTodo} 
-          setNewTodo={setNewTodo} />
+          <TodoWindow
+            setOpenPortalNewTodo={setOpenPortalNewTodo}
+            addTodo={addTodo}
+            newTodo={newTodo}
+            setNewTodo={setNewTodo}
+          />
         </PortalNewTodo>
       )}
       {openPortalFinishTodo && (
-        <PortalFinishTodo setOpenPortalFinishTodo={setOpenPortalFinishTodo}>
-          <TodoFinish />
+        <PortalFinishTodo >
+          <TodoFinish setOpenPortalFinishTodo={setOpenPortalFinishTodo}/>
         </PortalFinishTodo>
       )}
-      </React.Fragment>
+    </React.Fragment>
   );
 }
 
