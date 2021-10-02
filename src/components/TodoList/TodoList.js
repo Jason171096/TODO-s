@@ -2,18 +2,20 @@ import React from "react";
 import "./TodoList.css";
 
 const TodoList = ({
+  children,
+  render,
   isLoading,
   searchedTodos,
   totalTodos,
   onLoading,
   onEmptyTodos,
-  render,
 }) => {
+  const renderFunction = children || render
   return (
     <div className="TodoList">
       {isLoading && onLoading()}
       {(!isLoading && !totalTodos) && onEmptyTodos()}
-      <ul className="ul">{searchedTodos.map(render)}</ul>
+      <ul className="ul">{searchedTodos.map(renderFunction)}</ul>
     </div>
   );
 };

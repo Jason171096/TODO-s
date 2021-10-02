@@ -16,7 +16,6 @@ import TodoFinish from "../TodoFinish/TodoFinish";
 function App() {
   const {
     isLoading,
-    isCompleted,
     searchedTodos,
     completeTodo,
     deleteTodo,
@@ -40,11 +39,24 @@ function App() {
       </TodoHeader>
       <TodoList
         isLoading={isLoading}
-        searchedTodos={searchedTodos}
         totalTodos={totalTodos}
+        searchedTodos={searchedTodos}
         onLoading={() => <TodosLoading />}
         onEmptyTodos={() => <EmptyTodos />}
-        render={(todo) => (
+        // Through render
+        // render= {todo => (
+        //   <TodoItem
+        //     key={todo.id}
+        //     id={todo.id}
+        //     text={todo.text}
+        //     completed={todo.completed}
+        //     completeTodo={() => completeTodo(todo.id)}
+        //     deleteTodo={() => deleteTodo(todo.id)}
+        //   />
+        // )}
+      >
+        {/* Through children */}
+        {todo => (
           <TodoItem
             key={todo.id}
             id={todo.id}
@@ -54,7 +66,7 @@ function App() {
             deleteTodo={() => deleteTodo(todo.id)}
           />
         )}
-      />
+      </TodoList>
       <CreateTodoButton setOpenPortalNewTodo={setOpenPortalNewTodo} />
       {openPortalNewTodo && (
         <PortalNewTodo>
@@ -67,8 +79,8 @@ function App() {
         </PortalNewTodo>
       )}
       {openPortalFinishTodo && (
-        <PortalFinishTodo >
-          <TodoFinish setOpenPortalFinishTodo={setOpenPortalFinishTodo}/>
+        <PortalFinishTodo>
+          <TodoFinish setOpenPortalFinishTodo={setOpenPortalFinishTodo} />
         </PortalFinishTodo>
       )}
     </React.Fragment>
