@@ -11,6 +11,7 @@ import { PortalNewTodo } from "../Portal-NewTodo/index";
 import { PortalFinishTodo } from "../Portal-FinishTodo/index";
 import { TodosLoading } from "../TodosLoading/TodosLoading";
 import { EmptyTodos } from "../EmptyTodos/EmptyTodos";
+import ChangeAlert from "../ChangeAlert/ChangeAlert";
 import TodoFinish from "../TodoFinish/TodoFinish";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
     addTodo,
     newTodo,
     setNewTodo,
+    sincronized,
   } = useTodos();
   return (
     <React.Fragment>
@@ -83,6 +85,7 @@ function App() {
           <TodoFinish setOpenPortalFinishTodo={setOpenPortalFinishTodo} />
         </PortalFinishTodo>
       )}
+      <ChangeAlert sincronized={sincronized}/>
     </React.Fragment>
   );
 }

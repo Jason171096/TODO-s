@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useLocalStore } from "./useLocalStorage";
 
 const useTodos = () => {
@@ -6,6 +6,7 @@ const useTodos = () => {
   const {
     item: todos,
     saveItems: saveTodos,
+    sincronizedItems: sincronized,
     isLoading,
   } = useLocalStore("TODOS_V1", []);
 
@@ -13,14 +14,23 @@ const useTodos = () => {
   const [newTodo, setNewTodo] = useState("")
   const [openPortalNewTodo, setOpenPortalNewTodo] = useState(false);
   const [openPortalFinishTodo, setOpenPortalFinishTodo] = useState(false);
-  let completedTodos, totalTodos; 
+  let completedTodos, totalTodos
 
   const lengthTodos = () => {
     completedTodos = todos.filter((todo) => !!todo.completed).length;
     totalTodos = todos.length;
+    console.log(completedTodos)
   }
 
   lengthTodos()
+  // useEffect(() => {
+  //   lengthTodos()
+  // })
+
+  function refreshTodos() {
+    const newTodos = [...todos]
+    saveTodos(newTodos)
+  }
 
   const finishTodos = () => {
     if(totalTodos !== 0)
@@ -36,6 +46,7 @@ const useTodos = () => {
       text,
     })
     saveTodos(newTodos)
+    lengthTodos()
     setOpenPortalNewTodo(false)
   }
 
@@ -83,6 +94,7 @@ const useTodos = () => {
         openPortalFinishTodo,
         setOpenPortalFinishTodo,
         addTodo,
+        sincronized,
       }
 }
 

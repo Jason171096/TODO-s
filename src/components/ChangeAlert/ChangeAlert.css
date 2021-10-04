@@ -1,0 +1,14 @@
+.ChangeAlert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-update {
+    color: white;
+    padding: 10px;
+    background-color: #654EA3BF;
+    border-radius: 10px;
+    cursor: pointer;
+}

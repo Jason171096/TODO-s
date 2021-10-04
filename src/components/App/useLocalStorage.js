@@ -1,6 +1,7 @@
 import { useState, useEffect }  from 'react'
 
 const useLocalStore = (itemName, initialValue) => {
+    const [sincronized, setSincronized] = useState(true)
     const [item, setItem] = useState(initialValue)
     const [isLoading, setIsLoading] = useState(true)
     
@@ -17,17 +18,21 @@ const useLocalStore = (itemName, initialValue) => {
       setIsLoading(false)
       
       }, 0);
-    }, [])
+    }, [sincronized])
     
     const saveItems = (Items) => {
       setItem(Items)
       let jsonItems = JSON.stringify(Items)
       localStorage.setItem(itemName, jsonItems)
     }
-    
+    const sincronizedItems = () => {
+      setIsLoading(true)
+      setSincronized(false)
+    }
     return {
       item,
       saveItems,
+      sincronizedItems,
       isLoading,
     }
     
