@@ -15,7 +15,7 @@ const TodoList = ({
     <div className="TodoList">
       {isLoading && onLoading()}
       {(!isLoading && !totalTodos) && onEmptyTodos()}
-      {isLoading && <ul className="ul">{searchedTodos.map(renderFunction)}</ul>}
+      {(!isLoading && searchedTodos) && <ul className="ul">{searchedTodos.map(renderFunction)}</ul>}
     </div>
   );
 };
