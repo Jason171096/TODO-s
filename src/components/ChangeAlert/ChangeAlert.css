@@ -1,14 +1,42 @@
 .ChangeAlert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+.container-alert {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    background-color: #654EA3; 
+}
+
+
+.paragrafh-update {
+    width: 50%;
+    margin: 0 15px;
+    text-align: start;
+}
+
+.container-button {
+    width: 25%;
 }
 
 .button-update {
+    background-color: #8383FF;
     color: white;
-    padding: 10px;
-    background-color: #654EA3BF;
+    padding: 10px 15px;
     border-radius: 10px;
     cursor: pointer;
+    margin: auto;
 }

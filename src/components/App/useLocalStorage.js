@@ -17,7 +17,7 @@ const useLocalStore = (itemName, initialValue) => {
       saveItems(parsedItem)
       setIsLoading(false)
       
-      }, 0);
+      }, 3000);
     }, [sincronized])
     
     const saveItems = (Items) => {
