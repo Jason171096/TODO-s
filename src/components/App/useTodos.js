@@ -6,7 +6,7 @@ const useTodos = () => {
   const {
     item: todos,
     saveItems: saveTodos,
-    sincronizedItems: sincronized,
+    sincronizedItems: sincronizedTodos,
     isLoading,
   } = useLocalStore("TODOS_V1", []);
 
@@ -19,18 +19,9 @@ const useTodos = () => {
   const lengthTodos = () => {
     completedTodos = todos.filter((todo) => !!todo.completed).length;
     totalTodos = todos.length;
-    console.log(completedTodos)
   }
 
   lengthTodos()
-  // useEffect(() => {
-  //   lengthTodos()
-  // })
-
-  function refreshTodos() {
-    const newTodos = [...todos]
-    saveTodos(newTodos)
-  }
 
   const finishTodos = () => {
     if(totalTodos !== 0)
@@ -94,7 +85,7 @@ const useTodos = () => {
         openPortalFinishTodo,
         setOpenPortalFinishTodo,
         addTodo,
-        sincronized,
+        sincronized: sincronizedTodos,
       }
 }
 

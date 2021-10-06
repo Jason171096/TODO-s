@@ -1,8 +1,10 @@
 import React from "react";
 import "./ChangeAlert.css";
 import { withStorageAlert } from "./withStorageAlert";
+import { useStorageAlert } from "./useStorageAlert";
 
-const ChangeAlert = ({ show, toggleShow }) => {
+const ChangeAlert = ({ sincronized }/*{ show, toggleShow }*/) => {
+  const { show, toggleShow } = useStorageAlert(sincronized)
   if (show) {
     return (
       <div className="ChangeAlert">
@@ -15,8 +17,7 @@ const ChangeAlert = ({ show, toggleShow }) => {
             Ok
           </a>
         </div>
-        </div>
-        
+        </div> 
       </div>
     );
   } else {
@@ -24,6 +25,6 @@ const ChangeAlert = ({ show, toggleShow }) => {
   }
 };
 
-const changeAlertWithStorage = withStorageAlert(ChangeAlert);
+// const changeAlertWithStorage = withStorageAlert(ChangeAlert);
 
-export default changeAlertWithStorage;
+export default ChangeAlert;
