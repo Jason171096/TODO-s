@@ -1,54 +1,67 @@
 .TodoCounter {
-    width: 100%;
-    background-color: #654ea3bf;
-    box-shadow: 3px 5px 5px 5px #506384;
-    color: aliceblue;
-    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
-    height: 130px;
+  width: 100%;
+  background-color: #654ea3bf;
+  color: aliceblue;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.75);
+  height: 210px;
+  padding-top: 15px;
+  border-radius: 0px 0px 20px 20px;
 }
 
-.title { 
-    margin: auto;
-    padding: 10px;
-    max-width: 700px;
+.title {
+  display: flex;
+  margin: auto;
+  margin: auto;
+  align-items: center;
+  max-width: 500px;
 }
 
-/* h1{
-    font-size: 1.7rem;
-} */
-
-h1, h2, p {
-    text-align: center;
-    margin: 10px 0px;
+.title h1 {
+  font-size: 1.7rem;
+  text-align: center;
+  margin: 10px 0px;
 }
 
-h2 {
-    font-size: 1.7rem;
+
+.sub-title h2,
+p {
+  text-align: center;
+  margin: 10px 0px;
 }
 
 .sub-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding-top: 10px;
 }
 
 .sub-title > div {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 @media screen and (max-width: 500px) {
-    .TodoCounter {
-        height: 100px;
-    }
-    h1 {
-      font-size: 1.4rem;
-    }
-    h2 {
-        font-size: 1.2rem;
-    }
-    p {
-        font-size: 1rem;
-    }
+  .TodoCounter {
+    height: 190px;
   }
+  .title {
+    margin: 0 20px;
+  }
+  .sub-title {
+    padding-top: 0;
+    margin: 0 20px;
+  }
+  h1 {
+    font-size: 1.4rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1rem;
+  }
+}
