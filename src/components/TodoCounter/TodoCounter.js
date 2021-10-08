@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import "./TodoCounter.css";
-import TaskIco from "../../img/task-list.svg";
 import taskListAnimated from "../../img/task-list.json";
 import Lottie from "react-lottie";
 
